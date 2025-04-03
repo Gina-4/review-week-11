@@ -7,26 +7,31 @@ const randomColors = [
     '#20BF55'
   ];
 
-  const selectButtton = document.getElementById('selectButton')
+  const selectButton = document.getElementById('selectButton')
   const randomSelect = document.getElementById('randomSelect')
-  const inputValue = document.getElementById('myInput').value
-const randomColors = Math.floor(Math.random() * randomColors.length);
+  const inputValue = document.getElementById('myInput')
+const randomIndex = Math.floor(Math.random() * randomColors.length);
+const inputText = document.getElementById('inputText')
+const favButton = document.getElementById('favButton')
+const favColorBox = document.getElementById('favColorBox')
 
-  selectButtton.addEventListener('click', function() {
-    console.log('')
+
+  selectButton.addEventListener('click', function() {
+    const text = document.getElementById('inputText').value;
+    console.log(text)
+    inputValue.style.backgroundColor = text;
     });
     
 
-document.getElementById('myInput').addEventListener('click' function() {
-    const text = document.getElementById('myInput').value;
-    console.log('inputValue', text);
-});
-
-
-
-  randomSelect.addEventListener('click', function() {
-    const randomIndex = Math.floor(Math.random() * randomColors.length);
+randomSelect.addEventListener('click', function() {
+ const randomIndex = Math.floor(Math.random() * randomColors.length);
     console.log(randomColors[randomIndex]); 
+  inputValue.style.backgroundColor = randomColors[randomIndex]; 
+  favColorBox.style.color = "blue";
+
   });
-  let randomSelect = document.getElementById(`color-${randomIndex}`)
-  myInput.style.backgroundColor = '#FFB17A';
+
+  favButton.addEventListener('click', function() {
+favColorBox.style.backgroundColor = "orange";
+favColorBox.style.color = "red";
+  })
